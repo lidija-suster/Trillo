@@ -1,24 +1,75 @@
 // LOGO
 .logo {
     height: 3.25rem;
+    margin-left: 3rem;
 }
 
 // SEARCH
 .search {
+    flex: 0 0 40%;
+    // Although this is flex item, it can become flex container (nesting)
+    display: flex;
+    // Cross axis
+    align-items: center;
+    // Main axis
+    justify-content: center;
     &__input {
+        // Input element doesn't inherit global font settings, so it has to be explicitly set to inherit
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+        background-color: var(--color-grey-light-2);
+        border: none;
+        padding: 0.7rem 2rem;
+        border-radius: 100px;
+        width: 90%;
+        transition: all 0.2s;
+        // To go inside input
+        margin-right: -3.25rem;
+
+        &:focus {
+            outline: none;
+            width: 100%;
+            background-color: var(--color-grey-light-3);
+        }
+
+        // Select placeholder, works only for webkit browsers
+        &::-webkit-input-placeholder {
+            font-weight: 100;
+            color: var(--color-grey-light-4);
+        }
+    }
+
+    // Select adjacent sibling
+    &__input:focus + &__button {
+        // Button to have same background-color as sibling input
+        background-color: var(--color-grey-light-3);
     }
 
     &__button {
+        border: none;
+        background-color: var(--color-grey-light-2);
+
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            transform: translateY(2px);
+        }
     }
 
     &__icon {
         height: 2rem;
         width: 2rem;
+        // Change color of svg icon
+        fill: var(--color-grey-dark-3);
     }
 }
 
 // USER NAVIGATION
 .user-nav {
+    background-color: greenyellow;
     &__icon-box {
     }
 

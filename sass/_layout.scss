@@ -12,9 +12,17 @@
 }
 
 .header {
+    // Input will inherit font-size from here
+    font-size: 1.4rem;
     height: 7rem;
     background-color: #fff;
     border-bottom: var(--color-grey-light-2);
+    // Display items side by side
+    display: flex;
+    // Align items on main axis
+    justify-content: space-between;
+    // Align items on cross axis
+    align-items: center;
 }
 
 .content {
