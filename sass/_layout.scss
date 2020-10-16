@@ -1,0 +1,38 @@
+.container {
+    // max-width to enable decreasing of a container
+    // If there is enough space, width will be 120rem, if not, container will occupy 100% of space
+    // 120rem = 1200px;
+    max-width: 120rem;
+    // Center container in parent (body)
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+
+    min-height: 50rem;
+}
+
+.header {
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: var(--color-grey-light-2);
+}
+
+.content {
+    display: flex;
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+    // 0: navigation should not grow, 0: navigation should not shrink,
+    // 18%: width of navigation
+    flex: 0 0 18%;
+}
+
+.hotel-view {
+    // background-color: #fff;
+    background-color: orangered;
+    // Element should grow as much as it can, or fill all available space
+    // (if flex is stated only with one number, it is related to flex-grow
+    // 100% - 18% (of sidebar) = 82%
+    flex: 1;
+}
