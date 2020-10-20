@@ -34,11 +34,18 @@
     // 0: navigation should not grow, 0: navigation should not shrink,
     // 18%: width of navigation
     flex: 0 0 18%;
+    // Make it flex container
+    display: flex;
+    // Change direction of a main axis from top to bottom
+    flex-direction: column;
+    // Push icons to top and legal paragraph to bottom
+    justify-content: space-between;
 }
 
 .hotel-view {
     // background-color: #fff;
     background-color: orangered;
+    height: 80rem;
     // Element should grow as much as it can, or fill all available space
     // (if flex is stated only with one number, it is related to flex-grow
     // 100% - 18% (of sidebar) = 82%
