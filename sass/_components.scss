@@ -123,15 +123,69 @@
 
 // SIDE NAVIGATION
 .side-nav {
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+
     &__item {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
     }
 
-    &__link {
+    // Show before item, positioned in relation to item element
+    &__item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        // Initial width
+        width: 3px;
+        background-color: var(--color-primary);
+        // In normal state it has to be set to 0, so nothing will be visible
+        transform: scaleY(0);
+        // Set 0.2s time for transform to happen, and it will wait 0.2s (fourth argument)
+        // for width animation to happen (which takes 0.4s)
+        // cubic-bezier is animation timing and speed (found at cubic-bezier site) for width
+        transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+    }
+
+    &__item:hover::before,
+    &__item--active::before {
+        // Add 1 to scaleY on hover state, to grow 100% in Y direction
+        transform: scaleY(1);
+        // On expand take full width
+        width: 100%;
+    }
+
+    &__item:active::before {
+        background-color: var(--color-primary-light);
+    }
+
+    &__link:link,
+    &__link:visited {
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+        // Added only for z-index to work
+        position: relative;
+        z-index: 10;
+
+        display: flex;
+        align-items: center;
     }
 
     &__icon {
         width: 1.75rem;
         height: 1.75rem;
+        margin-right: 2rem;
+        // currentColor is the color of the current element or the parent element
+        fill: currentColor;
     }
 }
 
