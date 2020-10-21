@@ -196,3 +196,47 @@
     text-align: center;
     padding: 2.5rem;
 }
+
+// GALLERY
+.gallery {
+    display: flex;
+
+    &__photo {
+        // For responsive images, always put percentages for width and height
+        width: 100%;
+        // Add diplay: block to remove white space from image (which happens when image is display: inline
+        display: block;
+    }
+}
+
+// HOTEL OVERVIEW
+.overview {
+    display: flex;
+
+    &__heading {
+    }
+
+    &__stars {
+        // Element will occupy only space that it needs (flexbox trick), and margin will occupy the rest of the space
+        margin-right: auto;
+    }
+
+    &__icon-star,
+    &__icon-location {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
+    }
+
+    &__location {
+    }
+
+    &__rating {
+    }
+
+    &__ratingaverage {
+    }
+
+    &__rating-count {
+    }
+}
