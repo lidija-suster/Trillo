@@ -212,13 +212,22 @@
 // HOTEL OVERVIEW
 .overview {
     display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--color-grey-light-2);
 
     &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem;
     }
 
     &__stars {
         // Element will occupy only space that it needs (flexbox trick), and margin will occupy the rest of the space
         margin-right: auto;
+        // To remove extra space around stars, and for vertical alignment
+        display: flex;
     }
 
     &__icon-star,
@@ -229,14 +238,85 @@
     }
 
     &__location {
+        font-size: 1.2rem;
+        display: flex;
+        vertical-align: center;
+    }
+
+    &__icon-location {
+        margin-right: 0.5rem;
     }
 
     &__rating {
+        background-color: var(--color-primary);
+        color: #fff;
+        margin-left: 3rem;
+        padding: 0 2.25rem;
+        align-self: stretch;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
-    &__ratingaverage {
+    &__rating-average {
+        font-size: 2.25rem;
+        font-weight: 300;
+        margin-bottom: -3px;
     }
 
     &__rating-count {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
+}
+
+// BUTTON INLINE
+.btn-inline {
+    border: none;
+    color: var(--color-primary);
+    font-size: inherit;
+    // Border will have color of the text --color-primary
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        // On hover, border color will also update with --color-grey-dark-1 because of currentColor
+        color: var(--color-grey-dark-1);
+    }
+
+    &:focus {
+        outline: none;
+        // Add animation - name/duration/infinite animation as long as button is focused
+        animation: pulsate 1s infinite;
+    }
+}
+
+// Animation for pulsating button
+@keyframes pulsate {
+    // What will happen at the beggining
+    0% {
+        // No scale and no box-shadow, normal state
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    // What will happen at the middle
+    50% {
+        // A little scale
+        transform: scale(1.05);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+    }
+
+    // What will happen at the end
+    100% {
+        // Back no normal
+        transform: scale(1);
+        box-shadow: none;
     }
 }
