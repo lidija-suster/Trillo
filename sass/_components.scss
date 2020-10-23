@@ -285,9 +285,20 @@
     cursor: pointer;
     transition: all 0.2s;
 
+    // Show all button
+    & span {
+        margin-left: 3px;
+        transition: margin-left 0.2s;
+    }
+
     &:hover {
         // On hover, border color will also update with --color-grey-dark-1 because of currentColor
         color: var(--color-grey-dark-1);
+
+        // Move arrow on 'Show all' button when hover
+        span {
+            margin-left: 8px;
+        }
     }
 
     &:focus {
@@ -327,7 +338,6 @@
 }
 
 // LIST
-
 .list {
     list-style: none;
     margin: 3rem 0;
@@ -368,7 +378,6 @@
 }
 
 //RECOMMEND
-
 .recommend {
     font-size: 1.3rem;
     color: var(--color-grey-dark-3);
@@ -378,9 +387,6 @@
 
     &__count {
         margin-right: auto;
-    }
-
-    &__friends {
     }
 
     &__photo {
@@ -395,5 +401,71 @@
         &:not(:last-of-type) {
             margin-right: -1.5rem;
         }
+    }
+}
+
+// REVIEWS
+.review {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    margin-bottom: 3.5rem;
+    // In order to position the quotation mark
+    position: relative;
+    // Prevent the quotation mark from overflowing outside
+    overflow: hidden;
+
+    &__text {
+        margin-bottom: 2rem;
+        z-index: 10;
+        // Only for z-index to work
+        position: relative;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+    }
+
+    &__photo {
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        margin-right: 1.5rem;
+    }
+
+    &__user-box {
+        margin-right: auto;
+    }
+
+    &__user-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0.4rem;
+    }
+
+    &__user-date {
+        font-size: 1rem;
+        color: var(--color-grey-dark-3);
+    }
+
+    &__rating {
+        color: var(--color-primary);
+        font-size: 2.2rem;
+        font-weight: 300;
+    }
+
+    &::before {
+        // Code for quotation mark
+        content: "\201C";
+        position: absolute;
+        top: -2.75rem;
+        left: -1rem;
+        line-height: 1;
+        font-size: 20rem;
+        color: var(--color-grey-light-2);
+        font-family: sans-serif;
+        z-index: 1;
     }
 }

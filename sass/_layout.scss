@@ -51,6 +51,8 @@
 }
 
 .detail {
+    // Both description and user-reviews will inherit this font-size
+    font-size: 1.4rem;
     display: flex;
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
@@ -68,7 +70,12 @@
 }
 
 .user-reviews {
-    background-color: yellowgreen;
     // Take remaining space from 60%
     flex: 1;
+
+    display: flex;
+    // Center 'Show all' button
+    flex-direction: column;
+    // Need to change to center, because default stretch is stretching the button's border-bottom all along the container
+    align-items: center;
 }
