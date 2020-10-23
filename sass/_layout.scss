@@ -16,7 +16,7 @@
     font-size: 1.4rem;
     height: 7rem;
     background-color: #fff;
-    border-bottom: 1px solid var(--color-grey-light-2);
+    border-bottom: var(--line);
     // Display items side by side
     display: flex;
     // Align items on main axis
@@ -44,9 +44,31 @@
 
 .hotel-view {
     background-color: #fff;
-    height: 80rem;
     // Element should grow as much as it can, or fill all available space
     // (if flex is stated only with one number, it is related to flex-grow
     // 100% - 18% (of sidebar) = 82%
+    flex: 1;
+}
+
+.detail {
+    display: flex;
+    padding: 4.5rem;
+    background-color: var(--color-grey-light-1);
+    border-bottom: var(--line);
+}
+
+.description {
+    font-size: 1.4rem;
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    // No expand, no shrink, 60% width
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+}
+
+.user-reviews {
+    background-color: yellowgreen;
+    // Take remaining space from 60%
     flex: 1;
 }
