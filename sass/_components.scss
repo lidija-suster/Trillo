@@ -320,3 +320,80 @@
         box-shadow: none;
     }
 }
+
+// PARAGRAPH
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+// LIST
+
+.list {
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: var(--line);
+    border-bottom: var(--line);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        flex: 0 0 50%;
+        margin-bottom: 0.7rem;
+    }
+
+    // Before each list__item, create small pseudo element which will contain background image
+    &__item::before {
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        margin-right: 0.7rem;
+
+        // Older browsers
+        // background-image: url(../img/chevron-thin-right.svg);
+        // background-size: cover;
+
+        // Newer browsers - masks
+        // A mask defines an area where we can look through the element and see what's behind that element
+        // So the svg will have the color from background-color
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        // Same like background-size: cover; adjusting the size of an image to the container
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+    }
+}
+
+//RECOMMEND
+
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+
+    display: flex;
+    align-items: center;
+
+    &__count {
+        margin-right: auto;
+    }
+
+    &__friends {
+    }
+
+    &__photo {
+        // Return box-sizing to the default, so the border will be added on top of the height and width,
+        // so the images will not change in size
+        box-sizing: content-box;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+
+        &:not(:last-of-type) {
+            margin-right: -1.5rem;
+        }
+    }
+}
