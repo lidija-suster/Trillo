@@ -9,6 +9,14 @@
     box-shadow: var(--shadow-dark);
 
     min-height: 50rem;
+
+    // Desktop-first starts with max-width
+    @media only screen and (max-width: $bp-largest) {
+        // On this breakpoint, margin is unnecessary because the container fills the entire viewport
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 .header {
@@ -27,6 +35,11 @@
 
 .content {
     display: flex;
+
+    @media only screen and (max-width: $bp-medium) {
+        // Navigation will be on top, and the overview beneath it
+        flex-direction: column;
+    }
 }
 
 .sidebar {
@@ -57,6 +70,10 @@
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
     border-bottom: var(--line);
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 3rem;
+    }
 }
 
 .description {
@@ -67,6 +84,11 @@
     // No expand, no shrink, 60% width
     flex: 0 0 60%;
     margin-right: 4.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        margin-right: 3rem;
+    }
 }
 
 .user-reviews {
