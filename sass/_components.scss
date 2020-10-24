@@ -13,6 +13,15 @@
     align-items: center;
     // Main axis
     justify-content: center;
+
+    @media only screen and (max-width: $bp-smallest) {
+        // Change order to be the last one element and it will move to the end
+        order: 1;
+        // No grow, no shrink, take 100% on this breakpoint
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input {
         // Input element doesn't inherit global font settings, so it has to be explicitly set to inherit
         font-family: inherit;
@@ -199,6 +208,12 @@
             justify-content: center;
             padding: 2rem;
         }
+
+        @media only screen and (max-width: $bp-small) {
+            // Change direction for this breakpoint
+            flex-direction: column;
+            padding: 1.5rem 0.5rem;
+        }
     }
 
     &__icon {
@@ -207,6 +222,13 @@
         margin-right: 2rem;
         // currentColor is the color of the current element or the parent element
         fill: currentColor;
+
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            margin-bottom: 0.7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -247,6 +269,11 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
     }
 
     &__stars {
@@ -284,17 +311,29 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: 0.8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 0.5rem;
+        }
     }
 }
 

@@ -31,6 +31,13 @@
     justify-content: space-between;
     // Align items on cross axis
     align-items: center;
+
+    @media only screen and (max-width: $bp-smallest) {
+        // Wrap the row so the search bar will move to the bottom on this breakpoint
+        flex-wrap: wrap;
+        align-content: space-around;
+        height: 11rem;
+    }
 }
 
 .content {
@@ -74,6 +81,11 @@
     @media only screen and (max-width: $bp-medium) {
         padding: 3rem;
     }
+
+    @media only screen and (max-width: $bp-small) {
+        // Change direction for this breakpoint
+        flex-direction: column;
+    }
 }
 
 .description {
@@ -88,6 +100,11 @@
     @media only screen and (max-width: $bp-medium) {
         padding: 2rem;
         margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        margin-bottom: 3rem;
     }
 }
 
