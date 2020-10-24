@@ -427,18 +427,24 @@
         margin-right: 0.7rem;
 
         // Older browsers
-        // background-image: url(../img/chevron-thin-right.svg);
-        // background-size: cover;
+        // If browser doesn't supports masks, this should happen
+        background-image: url(../img/chevron-thin-right.svg);
+        background-size: cover;
 
         // Newer browsers - masks
-        // A mask defines an area where we can look through the element and see what's behind that element
-        // So the svg will have the color from background-color
-        background-color: var(--color-primary);
-        -webkit-mask-image: url(../img/chevron-thin-right.svg);
-        // Same like background-size: cover; adjusting the size of an image to the container
-        -webkit-mask-size: cover;
-        mask-image: url(../img/chevron-thin-right.svg);
-        mask-size: cover;
+        // If browser supports masks, this should happen
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+            // A mask defines an area where we can look through the element and see what's behind that element
+            // So the svg will have the color from background-color
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            // Same like background-size: cover; adjusting the size of an image to the container
+            -webkit-mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+            // In order to work in newer browsers - gets overriden with upper background-image, and the color remains black without it
+            background-image: none;
+        }
     }
 }
 
