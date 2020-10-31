@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script type="text/javascript" src="autocomplete.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
@@ -17,8 +19,8 @@
         <header class="header">
             <img src="img/logo.png" alt="trillo logo" class="logo">
             <!-- BEM naming convention: search is block, input is element -->
-            <form action="#" class="search">
-                <input type="text" class="search__input" placeholder="Search hotels">
+            <form autocomplete="off" action="#" class="search autocomplete">
+                <input id="searchInput" type="text" class="search__input" placeholder="Search hotels">
                 <button class="search__button">
                     <!-- How to use svg icon with sprite.svg -->
                     <!-- Using svg's with use xlink:href will work only on web server -->
@@ -35,15 +37,61 @@
                     </svg>
                     <span class="user-nav__notification">7</span>
                 </div>
+
+
                 <div class="user-nav__icon-box">
                     <svg class="user-nav__icon">
                         <use xlink:href="img/sprite.svg#icon-chat"></use>
                     </svg>
                     <span class="user-nav__notification">13</span>
+                    <ul class="user-nav__user-menu-messages">
+                        <div class="pulsating-circle"></div>
+                        <li class="user-nav__message">You have 13 messages!</li>
+                        <li class="user-nav__message">
+                            <img src="img/user-6.jpg" alt="User 1" class="review__photo">
+                            <span> Lucy and 12 others</span>
+                        </li>
+                    </ul>
                 </div>
+
+
                 <div class="user-nav__user">
                     <img src="img/user-lidija.jpg" alt="User photo" class="user-nav__user-photo">
                     <span class="user-nav__user-name">Lidija</span>
+                    <ul class="user-nav__user-menu">
+                        <li class="user-nav__user-option user-nav__user-option--active">
+                            <a href="#" class="user-nav__user-link">
+                                <svg class="user-nav__user-icon">
+                                    <use xlink:href="img/sprite.svg#icon-cog"></use>
+                                </svg>
+                                <span>Account Settings</span>
+                            </a>
+                        </li>
+                        <li class="user-nav__user-option">
+                            <a href="#" class="user-nav__user-link">
+                                <svg class="user-nav__user-icon">
+                                    <use xlink:href="img/sprite.svg#icon-book"></use>
+                                </svg>
+                                <span>My History</span>
+                            </a>
+                        </li>
+                        <li class="user-nav__user-option">
+                            <a href="#" class="user-nav__user-link">
+                                <svg class="user-nav__user-icon">
+                                    <use xlink:href="img/sprite.svg#icon-bug"></use>
+                                </svg>
+                                <span>Report a Bug</span>
+                            </a>
+                        </li>
+                        <li class="user-nav__user-option">
+                            <a href="#" class="user-nav__user-link">
+                                <svg class="user-nav__user-icon">
+                                    <use xlink:href="img/sprite.svg#icon-switch"></use>
+                                </svg>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </header>
@@ -93,12 +141,15 @@
                 <div class="gallery">
                     <figure class="gallery__item">
                         <img src="img/hotel-1.jpg" alt="Photo of hotel 1" class="gallery__photo">
+                        <span class="gallery__caption">Luxurious Ambient At Night</span>
                     </figure>
                     <figure class="gallery__item">
                         <img src="img/hotel-2.jpg" alt="Photo of hotel 2" class="gallery__photo">
+                        <span class="gallery__caption">Relaxed Atmosphere</span>
                     </figure>
                     <figure class="gallery__item">
                         <img src="img/hotel-3.jpg" alt="Photo of hotel 3" class="gallery__photo">
+                        <span class="gallery__caption">Lovely Sights</span>
                     </figure>
                 </div>
                 <div class="overview">
